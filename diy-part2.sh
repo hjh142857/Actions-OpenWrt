@@ -20,3 +20,7 @@ sed -i 's/\"server\": \"0.0.0.0\",/\"server\": [\"[::0]\"],/g' package/feeds/hel
 # 取消XXR+订阅更新中Server项校验
 sed -i "/result.alias = nil/a\\\tlocal server = result.server\n\tresult.server = nil" package/feeds/helloworld/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
 sed -i "/result.alias = alias/a\\\tresult.server = server" package/feeds/helloworld/luci-app-ssr-plus/root/usr/share/shadowsocksr/subscribe.lua
+
+# 添加sshpass
+mkdir package/utils/sshpass
+wget -P package/utils/sshpass/ https://raw.githubusercontent.com/openwrt/packages/openwrt-19.07/utils/sshpass/Makefile
