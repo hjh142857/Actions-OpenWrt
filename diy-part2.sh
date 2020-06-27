@@ -14,6 +14,9 @@ sed -i 's/192.168.1.1/192.168.0.100/g' package/base-files/files/bin/config_gener
 # 设置LAN网关为192.168.0.1
 sed -i "/\$ipad/a\\\t\t\t\tset network.\$1.gateway='192.168.0.1'" package/base-files/files/bin/config_generate
 
+# 设置主机名
+sed -i 's/OpenWrt/OrangePi/g' package/base-files/files/bin/config_generate
+
 # 修改XXR+ Server默认监听IPv4成IPv6
 sed -i 's/\"server\": \"0.0.0.0\",/\"server\": [\"[::0]\"],/g' package/feeds/helloworld/luci-app-ssr-plus/root/etc/init.d/shadowsocksr
 
